@@ -1,28 +1,37 @@
 package com.assignment.web;
 
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.sun.istack.NotNull;
+
 
 @Entity
 @Table(name="transaction")
 public class Transaction {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="transactionid")
 	private int TransactionId;
+	
+    @NotNull
 	@Column(name="customerid")
 	private int CustomerId;
+	
+    @NotNull
 	@Column(name="bookid")
 	private int BookId;
+	
+    @NotBlank(message = "TrxnDate is mandatory")
 	@Column(name="trxndate")
 	private String TrxnDate;
+	
+    @NotBlank(message = "TrxnType is mandatory")
 	@Column(name="trxntype")
 	private String TrxnType;
 	

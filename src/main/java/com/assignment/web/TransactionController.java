@@ -20,7 +20,10 @@ public class TransactionController {
 	{
 		ModelAndView mview = new ModelAndView("transactions");
 		
-		List<String> transactionList = transactionRepository.ListTransactions("Check-in");
+		//List<String> transactionList = transactionRepository.ListSpecificTransactions("Check-out");
+		
+		List<String> transactionList = transactionRepository.ListTransactions();
+
 		
 		ArrayList<TransactionPretty> transactionListPretty = new ArrayList<TransactionPretty>();
 		
